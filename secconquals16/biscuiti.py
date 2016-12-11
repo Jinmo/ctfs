@@ -90,7 +90,7 @@ if __name__ == '__main__':
 	pad = lambda c: c + chr(16 - len(c) % 16) * (16 - len(c) % 16)
 	pool = Pool(50)
 	target = 'a:2:{s:4:"name";i:1;s:7:"isadmin";i:1;}'
-	# ciphertext = oracle_padding('a' * 16)
+	ciphertext = oracle_padding('a' * 16)
 	print `ciphertext`
 	result = ''
 	iv = '\x00' * 16
