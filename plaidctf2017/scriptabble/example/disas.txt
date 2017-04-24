@@ -1,0 +1,228 @@
+ 00000 PushLiteral 0 # {'kind': 'dataBlock', 'data': ('alias with signature: ttxt', "\x00\x00\x00\x00\x01V\x00\x02\x00\x01\x0cMacintosh HD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcf\xd3\xf2\x86H+\x00\x00\x04\r\x1d+\x0cTextEdit.app\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\r\xc5\x9d\xd3\xc8\x1a\xdd\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\x00\x00\t \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0cApplications\x00\x10\x00\x08\x00\x00\xcf\xd4*\xc6\x00\x00\x00\x11\x00\x08\x00\x00\xd3\xc8S\x1d\x00\x00\x00\x01\x00\x04\x04\r\x1d+\x00\x02\x00'Macintosh HD:Applications:\x00TextEdit.app\x00\x00\x0e\x00\x1a\x00\x0c\x00T\x00e\x00x\x00t\x00E\x00d\x00i\x00t\x00.\x00a\x00p\x00p\x00\x0f\x00\x1a\x00\x0c\x00M\x00a\x00c\x00i\x00n\x00t\x00o\x00s\x00h\x00 \x00H\x00D\x00\x12\x00\x19Applications/TextEdit.app\x00\x00\x13\x00\x01/\x00\xff\xff\x00\x00"), 'id': 8}
+ 00001 Tell 30
+     00004 PushIt
+     00005 PushLiteral 1 # {'kind': 'codeId', 'data': 'kocl', 'id': -24}
+     00006 PushLiteral 2 # {'kind': 'codeId', 'data': 'docu', 'id': -25}
+     00007 PushLiteral 3 # {'kind': 'codeId', 'data': 'insh', 'id': -26}
+     00008 PushIt
+     00009 MakeObjectAlias 30 
+
+     0000a PushLiteral 4 # 4
+     0000b MessageSend 5 # {'kind': 'codeId', 'data': ('core', 'crel', '****', '\x00\x00\x00\x00', '\x00\x00\x90\x00', 'null'), 'id': -28}
+     0000e StoreResult
+     0000f PushIt
+     00010 PushLiteral 2 # {'kind': 'codeId', 'data': 'docu', 'id': -25}
+     00011 Push1
+     00012 MakeObjectAlias 24 
+
+     00013 Tell 11
+         00016 PushIt
+         00017 PushLiteral 6 # {'kind': 'codeId', 'data': 'ctxt', 'id': -29}
+         00018 MakeObjectAlias 22 
+
+         00019 PushLiteral 7 # {'kind': 'valueBlock2', 'data': ['\x00P\x00C\x00T\x00F\x00{'], 'id': 9}
+         0001a Concatenate
+         0001b PushIt
+         0001c PushLiteral 6 # {'kind': 'codeId', 'data': 'ctxt', 'id': -29}
+         0001d MakeObjectAlias 22 
+
+         0001e SetData
+         0001f EndTell
+     00020 EndTell
+ 00021 StoreResult
+ 00022 PushLiteral 8 # {'kind': 'dataBlock', 'data': ('alias with signature: MACS', '\x00\x00\x00\x00\x01t\x00\x02\x00\x01\x0cMacintosh HD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcf\xd3\xf2\x86H+\x00\x00\x04\r\x1d\x0c\nFinder.app\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\x0f\xb2\x13\xd4\x0f~\xfb\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\x00\x00\t \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0cCoreServices\x00\x10\x00\x08\x00\x00\xcf\xd4*\xc6\x00\x00\x00\x11\x00\x08\x00\x00\xd4\x0f\xb7;\x00\x00\x00\x01\x00\x0c\x04\r\x1d\x0c\x04\r\x1d\x0b\x04\r\x1d\n\x00\x02\x006Macintosh HD:System:\x00Library:\x00CoreServices:\x00Finder.app\x00\x0e\x00\x16\x00\n\x00F\x00i\x00n\x00d\x00e\x00r\x00.\x00a\x00p\x00p\x00\x0f\x00\x1a\x00\x0c\x00M\x00a\x00c\x00i\x00n\x00t\x00o\x00s\x00h\x00 \x00H\x00D\x00\x12\x00&System/Library/CoreServices/Finder.app\x00\x13\x00\x01/\x00\xff\xff\x00\x00'), 'id': 10}
+ 00023 Tell 313
+     00026 Push0
+     00027 GetData
+     00028 PopGlobal :r
+     00029 StoreResult
+     0002a Push0
+     0002b GetData
+     0002c PopGlobal :c
+     0002d StoreResult
+     0002e PushLiteral 11 # 210000000
+     0002f GetData
+     00030 PopGlobal :k
+     00031 StoreResult
+     00032 PushLiteral 13 # 31058
+     00033 PushLiteral 14 # 42570
+     00034 PushLiteral 15 # 35391
+     00035 PushLiteralExtended 16 # 44516
+     00038 PushLiteralExtended 17 # 121280
+     0003b PushLiteralExtended 18 # 134090
+     0003e PushLiteralExtended 19 # 98600
+     00041 PushLiteralExtended 20 # 101435
+     00044 PushLiteralExtended 21 # 34050
+     00047 PushLiteralExtended 22 # 51752
+     0004a PushLiteralExtended 23 # 309731
+     0004d PushLiteralExtended 24 # 111187
+     00050 PushLiteralExtended 25 # 164641
+     00053 PushLiteralExtended 26 # 77488
+     00056 PushLiteralExtended 27 # 466054
+     00059 PushLiteralExtended 28 # 369631
+     0005c PushLiteralExtended 29 # 161887
+     0005f PushLiteralExtended 30 # 467510
+     00062 PushLiteralExtended 31 # 133665
+     00065 PushLiteralExtended 32 # 253401
+     00068 PushLiteralExtended 33 # 146067
+     0006b PushLiteralExtended 34 # 243982
+     0006e PushLiteralExtended 35 # 22
+     00071 MakeVector
+     00072 GetData
+     00073 PopGlobalExtended :g
+     00076 StoreResult
+     00077 PushLiteralExtended 37 # {'kind': 'dataBlock', 'data': ('alias with signature: sfri', '\x00\x00\x00\x00\x01N\x00\x02\x00\x01\x0cMacintosh HD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcf\xd3\xf2\x86H+\x00\x00\x04\r\x1d+\nSafari.app\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\xd1\xb7\xe2\xd3\x9b\x11\xfd\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\x00\x00\t \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0cApplications\x00\x10\x00\x08\x00\x00\xcf\xd4*\xc6\x00\x00\x00\x11\x00\x08\x00\x00\xd3\x9bJ=\x00\x00\x00\x01\x00\x04\x04\r\x1d+\x00\x02\x00%Macintosh HD:Applications:\x00Safari.app\x00\x00\x0e\x00\x16\x00\n\x00S\x00a\x00f\x00a\x00r\x00i\x00.\x00a\x00p\x00p\x00\x0f\x00\x1a\x00\x0c\x00M\x00a\x00c\x00i\x00n\x00t\x00o\x00s\x00h\x00 \x00H\x00D\x00\x12\x00\x17Applications/Safari.app\x00\x00\x13\x00\x01/\x00\xff\xff\x00\x00'), 'id': 11}
+     0007a Tell 188
+         0007d LinkRepeat 0x139
+
+         00080 Push1
+         00081 PushGlobal :k
+         00082 Push1
+         00083 PushUndefined
+         00084 RepeatInRange 0
+         00087 PushVariable 0
+         00088 PushLiteralExtended 38 # 10000
+         0008b Remainder
+         0008c Push0
+         0008d Equal
+         0008e TestIf 0xad
+         00091 PushIt
+         00092 Push0
+         00093 MessageSend 39 # {'kind': 'codeId', 'data': ('misc', 'actv', 'null', '\xff\xff\x80\x00', '\xff\xff\x90\x00', 'null'), 'id': -59}
+         00096 StoreResult
+         00097 PushLiteralExtended 40 # {'kind': 'valueBlock2', 'data': ['\x00F\x00l\x00a\x00g\x00 \x00c\x00o\x00m\x00p\x00u\x00t\x00a\x00t\x00i\x00o\x00n\x00 \x00p\x00r\x00o\x00g\x00r\x00e\x00s\x00s\x00:\x00 '], 'id': 12}
+         0009a PushLiteralExtended 41 # {'kind': 'float', 'data': 1.12884e-319, 'id': 13}
+         0009d PushVariable 0
+         0009e Multiply
+         0009f PushGlobal :k
+         000a0 Divide
+         000a1 Concatenate
+         000a2 PushLiteralExtended 42 # {'kind': 'valueBlock2', 'data': ['\x00%'], 'id': 14}
+         000a5 Concatenate
+         000a6 Push0
+         000a7 MessageSend 43 # {'kind': 'codeId', 'data': ('syso', 'dlog', 'askr', '\x00\x00\x00\x00', '\x00\x00\x00\x00', 'TEXT'), 'id': -60}
+         000aa Jump jump 174
+         000ad PushUndefined
+         000ae StoreResult
+         000af PushLiteralExtended 44 # {'kind': 'dataBlock', 'data': ('alias with signature: sprf', '\x00\x00\x00\x00\x01~\x00\x02\x00\x01\x0cMacintosh HD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcf\xd3\xf2\x86H+\x00\x00\x04\r\x1d+\x16System Preferences.app\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\r\xc4\xc4\xd4\x07B\x14\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\x00\x00\t \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0cApplications\x00\x10\x00\x08\x00\x00\xcf\xd4*\xc6\x00\x00\x00\x11\x00\x08\x00\x00\xd4\x07zT\x00\x00\x00\x01\x00\x04\x04\r\x1d+\x00\x02\x001Macintosh HD:Applications:\x00System Preferences.app\x00\x00\x0e\x00.\x00\x16\x00S\x00y\x00s\x00t\x00e\x00m\x00 \x00P\x00r\x00e\x00f\x00e\x00r\x00e\x00n\x00c\x00e\x00s\x00.\x00a\x00p\x00p\x00\x0f\x00\x1a\x00\x0c\x00M\x00a\x00c\x00i\x00n\x00t\x00o\x00s\x00h\x00 \x00H\x00D\x00\x12\x00#Applications/System Preferences.app\x00\x00\x13\x00\x01/\x00\xff\xff\x00\x00'), 'id': 15}
+         000b2 Tell 126
+             000b5 PushIt
+             000b6 Push0
+             000b7 MessageSend 39 # {'kind': 'codeId', 'data': ('misc', 'actv', 'null', '\xff\xff\x80\x00', '\xff\xff\x90\x00', 'null'), 'id': -59}
+             000ba StoreResult
+             000bb PushGlobal :r
+             000bc PushGlobal :c
+             000bd PushLiteralExtended 45 # 52557135
+             000c0 Remainder
+             000c1 PushLiteralExtended 46 # 31337
+             000c4 Add
+             000c5 LessThan
+             000c6 TestIf 0x120
+             000c9 PushLiteralExtended 47 # {'kind': 'dataBlock', 'data': ('alias with signature: \x00\x00\x00\x00', '\x00\x00\x00\x00\x01^\x00\x02\x00\x01\x0cMacintosh HD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcf\xd3\xf2\x86H+\x00\x00\x04\r\x1d+\x0eCalculator.app\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\r"\xc1\xd4\x14f\xba\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\x00\x00\t \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0cApplications\x00\x10\x00\x08\x00\x00\xcf\xd4*\xc6\x00\x00\x00\x11\x00\x08\x00\x00\xd4\x14\x9e\xfa\x00\x00\x00\x01\x00\x04\x04\r\x1d+\x00\x02\x00)Macintosh HD:Applications:\x00Calculator.app\x00\x00\x0e\x00\x1e\x00\x0e\x00C\x00a\x00l\x00c\x00u\x00l\x00a\x00t\x00o\x00r\x00.\x00a\x00p\x00p\x00\x0f\x00\x1a\x00\x0c\x00M\x00a\x00c\x00i\x00n\x00t\x00o\x00s\x00h\x00 \x00H\x00D\x00\x12\x00\x1bApplications/Calculator.app\x00\x00\x13\x00\x01/\x00\xff\xff\x00\x00'), 'id': 16}
+             000cc Tell 79
+                 000cf PushIt
+                 000d0 Push0
+                 000d1 MessageSend 39 # {'kind': 'codeId', 'data': ('misc', 'actv', 'null', '\xff\xff\x80\x00', '\xff\xff\x90\x00', 'null'), 'id': -59}
+                 000d4 StoreResult
+                 000d5 PushGlobal :c
+                 000d6 Push1
+                 000d7 Add
+                 000d8 GetData
+                 000d9 PopGlobal :c
+                 000da StoreResult
+                 000db PushGlobal :c
+                 000dc Push0
+                 000dd MessageSend 48 # {'kind': 'codeId', 'data': ('syso', 'ttos', 'null', '\xff\xff\x80\x00', '\x00\x00\x00\x00', 'TEXT'), 'id': -63}
+                 000e0 StoreResult
+                 000e1 PushGlobal :c
+                 000e2 PushLiteralExtended 46 # 31337
+                 000e5 Remainder
+                 000e6 PushLiteralExtended 49 # 2313
+                 000e9 Equal
+                 000ea TestIf 0x11b
+                 000ed PushLiteral 0 # {'kind': 'dataBlock', 'data': ('alias with signature: ttxt', "\x00\x00\x00\x00\x01V\x00\x02\x00\x01\x0cMacintosh HD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcf\xd3\xf2\x86H+\x00\x00\x04\r\x1d+\x0cTextEdit.app\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\r\xc5\x9d\xd3\xc8\x1a\xdd\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\x00\x00\t \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0cApplications\x00\x10\x00\x08\x00\x00\xcf\xd4*\xc6\x00\x00\x00\x11\x00\x08\x00\x00\xd3\xc8S\x1d\x00\x00\x00\x01\x00\x04\x04\r\x1d+\x00\x02\x00'Macintosh HD:Applications:\x00TextEdit.app\x00\x00\x0e\x00\x1a\x00\x0c\x00T\x00e\x00x\x00t\x00E\x00d\x00i\x00t\x00.\x00a\x00p\x00p\x00\x0f\x00\x1a\x00\x0c\x00M\x00a\x00c\x00i\x00n\x00t\x00o\x00s\x00h\x00 \x00H\x00D\x00\x12\x00\x19Applications/TextEdit.app\x00\x00\x13\x00\x01/\x00\xff\xff\x00\x00"), 'id': 8}
+                 000ee Tell 40
+                     000f1 PushIt
+                     000f2 PushLiteral 2 # {'kind': 'codeId', 'data': 'docu', 'id': -25}
+                     000f3 Push1
+                     000f4 MakeObjectAlias 24 
+
+                     000f5 Tell 32
+                         000f8 PushIt
+                         000f9 PushLiteral 6 # {'kind': 'codeId', 'data': 'ctxt', 'id': -29}
+                         000fa MakeObjectAlias 22 
+
+                         000fb PushGlobalExtended :g
+                         000fe PushLiteralExtended 50 # {'kind': 'codeId', 'data': 'cobj', 'id': -65}
+                         00101 PushGlobal :c
+                         00102 PushLiteralExtended 51 # 29024
+                         00105 Add
+                         00106 PushLiteralExtended 46 # 31337
+                         00109 Divide
+                         0010a MakeObjectAlias 24 
+
+                         0010b PushGlobal :r
+                         0010c Subtract
+                         0010d Push0
+                         0010e MessageSend 52 # {'kind': 'codeId', 'data': ('syso', 'ntoc', 'TEXT', '\x00\x00\x10\x00', '\x00\x00\x00\x00', 'shor'), 'id': -67}
+                         00111 Concatenate
+                         00112 PushIt
+                         00113 PushLiteral 6 # {'kind': 'codeId', 'data': 'ctxt', 'id': -29}
+                         00114 MakeObjectAlias 22 
+
+                         00115 SetData
+                         00116 EndTell
+                     00117 EndTell
+                 00118 Jump jump 284
+                 0011b PushUndefined
+                 0011c EndTell
+             0011d Jump jump 289
+             00120 PushUndefined
+             00121 StoreResult
+             00122 PushGlobal :r
+             00123 PushLiteralExtended 53 # 5
+             00126 Multiply
+             00127 PushLiteralExtended 45 # 52557135
+             0012a Add
+             0012b PushLiteralExtended 54 # 67108864
+             0012e Remainder
+             0012f GetData
+             00130 PopGlobal :r
+             00131 EndTell
+         00132 Dup
+         00133 StoreResult
+         00134 Jump jump 132
+         00137 EndTell
+     00138 StoreResult
+     00139 PushLiteral 0 # {'kind': 'dataBlock', 'data': ('alias with signature: ttxt', "\x00\x00\x00\x00\x01V\x00\x02\x00\x01\x0cMacintosh HD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcf\xd3\xf2\x86H+\x00\x00\x04\r\x1d+\x0cTextEdit.app\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\r\xc5\x9d\xd3\xc8\x1a\xdd\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\x00\x00\t \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0cApplications\x00\x10\x00\x08\x00\x00\xcf\xd4*\xc6\x00\x00\x00\x11\x00\x08\x00\x00\xd3\xc8S\x1d\x00\x00\x00\x01\x00\x04\x04\r\x1d+\x00\x02\x00'Macintosh HD:Applications:\x00TextEdit.app\x00\x00\x0e\x00\x1a\x00\x0c\x00T\x00e\x00x\x00t\x00E\x00d\x00i\x00t\x00.\x00a\x00p\x00p\x00\x0f\x00\x1a\x00\x0c\x00M\x00a\x00c\x00i\x00n\x00t\x00o\x00s\x00h\x00 \x00H\x00D\x00\x12\x00\x19Applications/TextEdit.app\x00\x00\x13\x00\x01/\x00\xff\xff\x00\x00"), 'id': 8}
+     0013a Tell 33
+         0013d PushIt
+         0013e PushLiteral 2 # {'kind': 'codeId', 'data': 'docu', 'id': -25}
+         0013f Push1
+         00140 MakeObjectAlias 24 
+
+         00141 Tell 25
+             00144 PushIt
+             00145 PushLiteral 6 # {'kind': 'codeId', 'data': 'ctxt', 'id': -29}
+             00146 MakeObjectAlias 22 
+
+             00147 PushLiteralExtended 55 # {'kind': 'valueBlock2', 'data': ['\x00_'], 'id': 17}
+             0014a Concatenate
+             0014b PushGlobal :c
+             0014c Concatenate
+             0014d PushLiteralExtended 56 # {'kind': 'valueBlock2', 'data': ['\x00_'], 'id': 18}
+             00150 Concatenate
+             00151 PushGlobal :r
+             00152 Concatenate
+             00153 PushLiteralExtended 57 # {'kind': 'valueBlock2', 'data': ['\x00}'], 'id': 19}
+             00156 Concatenate
+             00157 PushIt
+             00158 PushLiteral 6 # {'kind': 'codeId', 'data': 'ctxt', 'id': -29}
+             00159 MakeObjectAlias 22 
+
+             0015a SetData
+             0015b EndTell
+         0015c EndTell
+     0015d EndTell
+ 0015e Return
+[Finished in 0.2s]
