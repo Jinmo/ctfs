@@ -8,17 +8,27 @@ if True:
 	path = 'example/apple.scpt'
 f = load_file(path)
 # pprint(f)
-for code in f['data']:
-	if code['kind'] == 'untypedPointerBlock':
-		data = code['data'][2]['data']
-		s = bytearray(data[-1])
-		literals = data[-2]['data']
-		break
+code = f['data'][-1]
+assert code['kind'] == 'untypedPointerBlock'
+data = code['data'][2]['data']
+literals = data[5]['data']
+s = bytearray(data[6])
 # literals = literals[2]
+# print literals
 off_16 = 'None'
 semantic_mode = False
 debug_mode = False
-comments = {}
+comments = {
+	21: 'GetProperty',
+	21 + 1: 'GetEvery',
+	21 + 2: 'GetSome',
+	21 + 3: 'GetIndexed (item A of B)',
+	21 + 4: 'GetKeyFrom',
+	21 + 6: 'GetRange',
+	21 + 9: 'GetPositionBeginning',
+	21 + 10: 'GetPositionEnd',
+	21 + 11: 'GetMiddle'
+}
 def word():
 	global i
 	r = struct.unpack(">H", s[i:i+2])[0]
@@ -93,7 +103,7 @@ while i < len(s):
 	if not semantic_mode:
 		print op,
 	if op == 'Jump':
-		print 'jump', i + word(),
+		print hex(i + word()),
 	elif op == 'PushLiteral':
 		if semantic_mode:
 			push(literal(c & 0xf)),
@@ -198,7 +208,7 @@ while i < len(s):
 	elif op in ['MakeObjectAlias', 'MakeComp']:
 		if not semantic_mode:
 			t = c - 23
-			print t, comments.get(t, '')
+			print t, '# ' + comments.get(t, '<Unknown>')
 		else:
 			t = c - 23
 			idx = getSizeByIndex(t)
