@@ -121,23 +121,37 @@ def load_file(path):
 		literals.append(v)
 		return v
 	def readList(id, size):
+		cur = r = {'next': None, 'value': None}
 		if size == 2:
 			while True:
 				a = read2()
 				b = read2()
-				findObject(a)
-				print b
-				if findObject(b, False) is None:
-					break
-				print 'wtf'
-				exit()
-				index, realRef, _size = read_header()
-				if index != 2 or _size != 2:
+				value = findObject(a)
+				cur['value'] = value
+				if b < 0 or findObject(b, False) is None:
+					index, realRef, _size = read_header()
+					if types[index] != 'list':
+						item = readObject(realRef, (index, realRef, _size))
+						cur['next']  = {'value': item, 'next': None}
+						break
+					else:
+						item = {'next': None}
+						refMap[realRef] = item
+						cur['next'] = item
+						cur = cur['next']
+					if _size != 2:
+						break
+				else:
 					break
 			if _size != 0:
 				raise Exception('list size is not in 0, 2')
-			refMap[id] = r
-			return r
+			rlist = []
+			cur = r
+			while cur['next']:
+				rlist.append(cur['value'])
+				cur = cur['next']
+			refMap[id] = rlist
+			return rlist
 		else:
 			if size != 0:
 				raise Exception('list initial size is not in 0, 2')
@@ -197,8 +211,11 @@ def load_file(path):
 		obj = index, realRef, size
 		literals.append(obj)
 		return obj
-	def readObject(refIdExpected):
-		index, id, size = read_header()
+	def readObject(refIdExpected, reuse_header=None):
+		if reuse_header:
+			index, id, size = reuse_header
+		else:
+			index, id, size = read_header()
 		assert id == refIdExpected
 		obj = {}
 		obj['kind'] = kind = types[index]
@@ -219,7 +236,7 @@ def load_file(path):
 		elif kind == 'long':
 			return read4()
 		elif kind == 'float':
-			data = struct.unpack("<d", f.read(8))[0]
+			data = struct.unpack(">d", f.read(8))[0]
 		elif kind == 'userId':
 			return readUserId(size)
 		elif kind == 'dataBlock':
