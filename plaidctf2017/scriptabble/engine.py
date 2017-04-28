@@ -378,3 +378,9 @@ ConstMap = {
     0x7A2: 'true',
     0x792: 'false'
 }
+
+if __name__ == '__main__':
+    for i in range(256):
+        if opcodes[i] == 'None':
+            opcodes[i] = ''
+        print '%02x' % i, opcodes[i]
