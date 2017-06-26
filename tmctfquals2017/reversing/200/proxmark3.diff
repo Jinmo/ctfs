@@ -1,0 +1,53 @@
+diff --git a/client/cmddata.c b/client/cmddata.c
+index c12c2ce..5722b24 100644
+--- a/client/cmddata.c
++++ b/client/cmddata.c
+@@ -95,7 +95,29 @@ int CmdSetDebugMode(const char *Cmd)
+ 	return 1;
+ }
+ 
++uint8_t lol[] = {
++1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1,
++1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0,
++1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1,
++0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
++1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1,
++1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1,
++0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1,
++1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1,
++1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
++1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0,
++0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1,
++1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0,
++1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1,
++0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1,
++0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0,
++1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
++1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1,
++1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1,
++1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1
++};
+ int usage_data_printdemodbuf(){
++setDemodBuf(lol, sizeof(lol), 0);
+ 		PrintAndLog("Usage: data printdemodbuffer x o <offset> l <length>");
+ 		PrintAndLog("Options:        ");
+ 		PrintAndLog("       h          This help");
+@@ -208,6 +230,9 @@ int ASKDemod_ext(const char *Cmd, bool verbose, bool emSearch, uint8_t askType,
+ 	uint8_t askamp = 0;
+ 	char amp = param_getchar(Cmd, 0);
+ 	uint8_t BitStream[MAX_GRAPH_TRACE_LEN]={0};
++	uint64_t lo = 0;
++	uint32_t hi = 0;
++	AskEm410xDecode(true, &hi, &lo);
+ 	sscanf(Cmd, "%i %i %i %i %c", &clk, &invert, &maxErr, &maxLen, &amp);
+ 	if (!maxLen) maxLen = BIGBUF_SIZE;
+ 	if (invert != 0 && invert != 1) {
+@@ -265,8 +290,6 @@ int ASKDemod_ext(const char *Cmd, bool verbose, bool emSearch, uint8_t askType,
+ 		printDemodBuff();
+ 		
+ 	}
+-	uint64_t lo = 0;
+-	uint32_t hi = 0;
+ 	if (emSearch){
+ 		AskEm410xDecode(true, &hi, &lo);
+ 	}
