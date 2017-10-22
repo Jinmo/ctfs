@@ -64,10 +64,10 @@ for index in outputIndexes:
 print
 # print simplify(result[0])
 
-non_string = 'C'
+expected = 'C' # Correct!
 start = 0
-for i in range(len(non_string) * 8):
-	c = ((ord(non_string[i >> 3]) >> (i % 8)) & 1 == 1)
+for i in range(len(expected) * 8):
+	c = ((ord(expected[i >> 3]) >> (i % 8)) & 1 == 1)
 	print c
 	expr = result[i+start*8] == c
 	s.add(expr)
