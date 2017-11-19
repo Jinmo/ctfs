@@ -1,6 +1,6 @@
 ## SSR
 
-This is a web challenge with Vue.js + Vue.js SSR. I found that SSR works with same JS code given to client after some requests to server.
+This is a web challenge with Vue.js + Vue.js SSR(Server-Side-Rendering). I found that SSR works with same JS code given to client after some requests to server.
 
 The url is like below, and the user data is JSON-encoded to the cookie.
 
