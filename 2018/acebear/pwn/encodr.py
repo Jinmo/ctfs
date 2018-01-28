@@ -1,8 +1,9 @@
 # Fortunately, it's really similar to yocto challenge on codegate 2015
-# which I made it before and presented in codegate
-# it was called "return to dynamic linker"
+# which I made it before and presented in codegate one years before
+# I named it as "return to dynamic linker"
 
 # The basic idea is, using [got+8] (which is called in each plt+11) and my custom offset to make _dl_runtime_resolve to resolve to my controlled function
+# It's called return - to - dl-resolve usually...
 
 # Here is good links in exploiting dynamic linker
 # https://www.slideshare.net/inaz2/rop-illmatic-exploring-universal-rop-on-glibc-x8664-ja (page 17)
@@ -12,6 +13,9 @@
 # And here is my document
 # http://gooverto.tistory.com/entry/Codegate-2014-Junior-Presentation (I modified this a little bit for this binary)
 # http://gooverto.tistory.com/entry/Return-To-DL-Exploitation
+
+# BOF payload length for the length field, and stage2 payload goes, and the command.
+# must append exit\n to prevent the non-zero exit code
 
 from socket import *
 import struct
