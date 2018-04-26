@@ -1,0 +1,8 @@
+On https://etherscan.io/address/0x299187bB996599f7Fc82DF025Ee8964CAFE3085a
+   -> https://etherscan.io/tx/0x94b7a45114d59f181baf869c9c7127926b63a0b2f57843328a6ad0d677754753 :
+
+Function: check_flag(bytes32 data)
+
+MethodID: 0x9339e942
+[0]:  666c61677b63306e47723464556c3474316f4e732d79307563346e523334447d
+   -> flag{c0nGr4dUl4t1oNs-y0uc4nR34D}

