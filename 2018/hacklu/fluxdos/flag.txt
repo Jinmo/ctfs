@@ -1,0 +1,1 @@
+flag{guru_meditation_flag_found}

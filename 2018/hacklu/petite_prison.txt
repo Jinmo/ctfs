@@ -1,0 +1,25 @@
+beer
+2
+y
+M b70 58
+M b71 b0
+M b72 3b
+M b73 48
+M b74 bb
+M b75 2f
+M b76 62
+M b77 69
+M b78 6e
+M b79 2f
+M b7a 73
+M b7b 68
+M b7c 00
+M b7d 53
+M b7e 31
+M b7f d2
+M b80 54
+M b81 5f
+M b82 0f
+M b83 05
+
+'recipes/gin/Fruity Light-Absorbing Gin'

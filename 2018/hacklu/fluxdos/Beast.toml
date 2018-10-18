@@ -1,0 +1,10 @@
+[program]
+name = "binary"
+target_version = "0.13.0"
+system_id = "__FLUXDOS__"
+# TODO: add syscalls
+[signals]
+read = 65494
+openfile = 65506
+close = 65500
+exit = 0
