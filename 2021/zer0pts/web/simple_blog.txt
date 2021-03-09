@@ -1,0 +1,4 @@
+theme=">
+<a id=callback href="&callback=import('//my_server')"></a>
+<iframe name=trustedTypes srcdoc="<a id=defaultPolicy>"></iframe>
+</a><script>
