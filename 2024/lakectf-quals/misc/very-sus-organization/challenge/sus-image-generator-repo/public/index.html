@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Among Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            max-height: 50%;
+            max-width: 80%;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pretty Sus Image Generator</h1>
+    <button onclick="showRandomImage()">Show Random Image</button>
+    <br>
+    <br>
+    <img id="image" src="/images/Sugoma.webp" alt="Random Among Us" />
+    
+    <script>
+        async function showRandomImage() {
+            const response = await fetch('/random-image');
+            const data = await response.json();
+            document.getElementById('image').src = data.image;
+        }
+    </script>
+</body>
+</html>

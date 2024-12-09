@@ -1,0 +1,32 @@
+name: Trigger Build on Comment
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+jobs:
+  check-build:
+    if: ${{ startsWith(github.event.comment.body, '/run-build') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up SSH
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.DEPENDENCY_DEPLOY_KEY }}
+          FLAG: ${{ secrets.FLAG }}
+        run: |
+          pwd
+          mkdir -p ~/.ssh
+          echo "$ACTIONS_DEPLOY_KEY" > ~/.ssh/id_rsa
+          echo "$FLAG" > ~/flag.txt
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          
+
+      - name: Install dependencies
+        run: |
+          npm install

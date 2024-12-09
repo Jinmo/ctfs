@@ -1,0 +1,13 @@
+{
+    "name": "sus-image-generator",
+    "version": "1.0.0",
+    "main": "app.js",
+    "keywords": [],
+    "author": "paultisaw",
+    "license": "ISC",
+    "description": "Yet another sus image generator",
+    "dependencies": {
+        "express": "^4.21.1",
+        "suspicious-random-number-generator": "git+ssh://git@github.com:VerySusOrganization/suspicious-random-number-generator-repo-(username).git"
+    }
+}
